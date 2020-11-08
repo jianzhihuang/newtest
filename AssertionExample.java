@@ -11,8 +11,9 @@ public class AssertionExample {
     	double ans;
     	ans = 1.0/d + 100;
 	System.out.println("AA");
-	System.out.println("BB");
-	System.out.println("CC");
+System.out.println("BB");
+	
+
     	//assert ans != Double.POSITIVE_INFINITY : "­pºâ¿ù»~! " + ans;
     	return ans;
     }
