@@ -10,6 +10,7 @@ public class AssertionExample {
     private static double calc(double d) {
     	double ans;
     	ans = 1.0/d + 100;
+	System.out.println("sssss");
     	//assert ans != Double.POSITIVE_INFINITY : "­pºâ¿ù»~! " + ans;
     	return ans;
     }
