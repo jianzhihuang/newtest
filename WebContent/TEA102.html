@@ -2,15 +2,16 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="./css/bking.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="./css/bking.css">
 </head>
 
 <body>
 	<div class="drag_drop">
-		<div class="tab_panel drop_panel" id="html-content-holder" style=" width: 1200px;  height:300px;" id="">
+		<div class="tab_panel drop_panel" id="html-content-holder"
+			style="width: 1200px; height: 300px;" id="">
 			<span>請把桌子拖曳至此</span>
 			<ul class="drop_ul"></ul>
 		</div>
@@ -18,7 +19,10 @@
 			<ul class="draggable_item">
 
 				<li id="table" class="table">
-					<div id="table_pic" width="100px" height="50px" style="border: 1px solid #000000"><div id="table_num">1</div></div>
+					<div id="table_pic" width="100px" height="50px"
+						style="border: 1px solid #000000">
+						<div id="table_num">1</div>
+					</div>
 				</li>
 			</ul>
 		</div>
@@ -28,19 +32,21 @@
 	<a id="btn-Convert-Html2Image" href="#">Download</a>
 	<br />
 	<h3>Preview :</h3>
-	<div id="previewImage">
-	</div>
+	<div id="previewImage"></div>
 
 	<button id="send">設定位置</button>
 
 	</FORM>
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js'></script>
-	<script src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js'></script>
+	<script
+		src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js'></script>
 	<script src="./js/index.js"></script>
 	<script>
-		$("#send").on("click", function () {
+		$("#send").on("click", function() {
 			var dataArray = [];
 			let $next = $("ul.drop_ul li:first-child");
 			// 			/*將元素放入陣列內*/
@@ -68,8 +74,6 @@
 			// // 				},
 			// 				success : function() {
 
-
-
 			// 				},
 			// 				error : function() {
 			// 					alert("系統錯誤-loginPage.jsp-ajax");
@@ -93,60 +97,62 @@
 		$drop_panel = $("div.drop_panel");
 
 		// 		/*允許可以拖曳元素到drop區域*/
-		$drop_panel.on("dragover", function (event) {
+		$drop_panel.on("dragover", function(event) {
 			event.preventDefault();
 		})
 
 		// 		/*將元素drop到該區域後利用dataTransfer取出該id，並複製一份元素，黏貼到drop區域*/
-		$drop_panel.on("drop", function (event) {
+		$drop_panel.on("drop", function(event) {
 			let el = event.originalEvent.dataTransfer.getData("item");//取得元素id
 			$copyEl = $(el).clone();
 			$("ul.drop_ul").append($copyEl);
 			let table_num = $("#table_num").html();
 			var xx = parseInt(table_num);
 			alert(++xx);
-			
-			
+
 			// while(true){
 			// 	table_num+num;	
 			// };
 			// 			/*放入後設定位置才有效果*/
 			let xy = $("ul.drop_ul").children(":last-child").offset({
-				left: event.pageX,
-				top: event.pageY
+				left : event.pageX,
+				top : event.pageY
 			})
 			$("ul.drop_ul").children(":last-child").data("object", el);
-			
+
 		});
 
 		// 		/*允許元素被拖曳*/
 		$li.attr("draggable", "true");
 
 		// 		/*當元素開始拖曳時，記住被拖曳元素的ID，dataTransfer類似於map的結構，但只能存元素的ID*/
-		$li.on("dragstart", function (event) {
-			event.originalEvent.dataTransfer.setData("item", `#${event.target.id}`);
+		$li.on("dragstart", function(event) {
+			event.originalEvent.dataTransfer.setData("item",
+					`#${event.target.id}`);
 		});
 	</script>
 	<script>
-
 		var element = $("#html-content-holder"); // global variable
 		var getCanvas; // global variable
 
-		$("#btn-Preview-Image").on('click', function () {
+		$("#btn-Preview-Image").on('click', function() {
 			html2canvas(element, {
-				onrendered: function (canvas) {
+				onrendered : function(canvas) {
 					$("#previewImage").append(canvas);
 					getCanvas = canvas;
 				}
 			});
 		});
-		$("#btn-Convert-Html2Image").on('click', function () {
-			var imgageData = getCanvas.toDataURL("image/png");
-			// Now browser starts downloading it instead of just showing it
-			var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-			$("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
-		});
-		
+		$("#btn-Convert-Html2Image").on(
+				'click',
+				function() {
+					var imgageData = getCanvas.toDataURL("image/png");
+					// Now browser starts downloading it instead of just showing it
+					var newData = imgageData.replace(/^data:image\/png/,
+							"data:application/octet-stream");
+					$("#btn-Convert-Html2Image").attr("download",
+							"your_pic_name.png").attr("href", newData);
+				});
 	</script>
 </body>
 
