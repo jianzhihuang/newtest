@@ -1,0 +1,42 @@
+ul li{
+  list-style: none;
+}
+
+div.drag_drop{
+  font-size: 30px;
+}
+
+div.tab_panel{
+  border:solid black;
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 10px;
+}
+
+div.drop_panel{
+  width: 300px;
+  height: 200px;
+}
+
+body{
+  font-family: Microsoft JhengHei;
+}
+button{
+  display: block;
+  margin: 20px;
+  padding: 10px 30px;
+  font-size: 20px;
+  color: white;
+  background-color: #4ebeba;
+  border: none;
+  border-radius: 5px;
+  
+}
+button:hover{
+  cursor: pointer;
+  transition: .5s;
+  box-shadow: 0 0 5px 1px #fff;
+}
+
+  

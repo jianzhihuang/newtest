@@ -1,0 +1,261 @@
+/* 基本 CSS */
+* {
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  margin: 0;
+  background: rgb(10,0,36);
+  background: radial-gradient(circle, rgba(10,0,36,0.1110819327731093) 0%, rgba(9,9,121,0.1110819327731093) 5%, rgba(0,212,255,0.04665616246498594) 100%);
+}
+article.task_container{
+  width: 900px;
+  margin: 50px auto 0;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 1px 5px gray;
+  position: relative;
+}
+h1.title1{
+  font-size: 2.4rem;
+  margin: 0 0 10px 0;
+}
+
+/* ===== 任務新增 ===== */
+div.task_add_block{
+  font-size: 0;
+  transition: transform .5s, box-shadow .5s;
+}
+div.task_add_block.-on{
+  box-shadow: 0 0 5px gray;
+  transform: scale(1.01);
+  transform-origin: center center;
+}
+div.task_add_block input.task_name{
+   width: calc(50% - 50px); 
+  border: 1px solid lightgray;
+  border-radius: 3px 0 0 3px;
+  height: 29px;
+  font-size: 2rem;
+  padding: 5px 10px;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+}
+div.task_add_block select.task_sel{
+  width: calc(50% - 50px); 
+ border: 1px solid lightgray;
+ border-radius: 3px 0 0 3px;
+ height: 29px;
+ font-size: 2rem;
+ outline: none;
+ display: inline-block;
+ vertical-align: top;
+}
+
+input.task_name::placeholder{
+  color: lightgray;
+}
+div.task_add_block button.task_add{
+  display: inline-block;
+  width: 50px;
+  height: 29px;
+  vertical-align: top;
+  border: 1px solid lightgray;
+  border-left: 0;
+  background-color: white;
+  box-shadow: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  outline: none;
+  border-radius: 0 3px 3px 0;
+}
+div.task_add_block button.task_add:active{
+  box-shadow: 1px 1px 3px lightgray inset, -1px -1px 3px lightgray inset;
+  background-color: #fcfcfc;
+  font-size: 1.5rem;
+}
+
+
+/* ===== 任務列表 ===== */
+div.task_list_parent{
+  margin-top: 30px;
+}
+div.task_list_parent ul.task_list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+div.task_list_parent ul.task_list > li{
+  margin-bottom: 20px;
+  border-bottom: 1px solid gray;
+  padding-bottom: 20px;
+}
+div.task_list_parent ul.task_list > li:first-child{
+  border-top: 1px solid black;
+  padding-top: 20px;
+}
+div.task_list_parent ul.task_list > li:first-child button.btn_up{
+  background-color: lightgray !important;
+  cursor: not-allowed !important;
+  color: gray;
+}
+div.task_list_parent ul.task_list > li:last-child{
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+div.task_list_parent ul.task_list > li:last-child button.btn_down{
+  background-color: lightgray !important;
+  cursor: not-allowed !important;
+  color: gray;
+}
+div.task_list_parent ul.task_list > li > div.item_flex{
+  display: flex;
+  /* border: 1px solid black; */
+
+}
+/* div.task_list_parent ul.task_list > li > div.item_flex > div{
+}/* border: 1px solid blue; */
+
+div.task_list_parent ul.task_list > li > div.item_flex > div.left_block{
+  width: 100px;
+  flex-shrink: 0;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.left_block div.btn_flex{
+  display: flex;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.left_block div.btn_flex > button{
+  flex-grow: 1;
+  outline: none;
+  height: 40px;
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+  background: none;
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+div.task_list_parent ul.task_list > li > div.item_flex > div.middle_block{
+  font-size: 1.8rem;
+  flex-grow: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.middle_block p.para{
+  position:absolute;
+  right:430px;
+  margin:0;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.middle_block select.task_sel{
+  width: calc(50% - 0px); 
+  border: 1px solid lightgray;
+  border-radius: 3px 0 0 3px;
+  height: 29px;
+  font-size: 2rem;
+  outline: none;
+  display: inline-block;
+  vertical-align: top;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.right_block{
+  width: 100px;
+  flex-shrink: 0;
+}
+
+div.task_list_parent ul.task_list > li > div.item_flex > div.right_block div.btn_flex{
+  display: flex;
+}
+div.task_list_parent ul.task_list > li > div.item_flex > div.right_block div.btn_flex > button{
+  flex-grow: 1;
+  outline: none;
+  height: 40px;
+  font-size: 1.6rem;
+  padding: 0;
+  margin: 0;
+
+  background: none;
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  border: 1px solid #eee;
+}
+
+
+div.middle_block input.task_name_update{
+  width: 50%;
+  border: 1px solid lightgray;
+  border-radius: 3px 0 0 3px;
+  height: 40px;
+  font-size: 2rem;
+  padding: 5px 10px;
+  outline: none;
+
+}
+div.middle_block input.task_name_update::placeholder{
+  color: lightgray;
+}
+
+.-none{
+  display: none;
+}
+
+/* ===== 清空按鈕 ===== */
+button.btn_empty{
+  float: right;
+  background: none;
+  background-color: white;
+  padding: 0;
+  margin: 0;
+  border: 1px solid lightgray;
+  border-radius: 3px;
+  height: 30px;
+  width: 50px;
+  outline: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ===== 重要性的星號 ===== */
+div.star_block{
+  display: inline-block;
+  position: relative;
+}
+div.temp_loading{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(0, 0%, 0%, .1);
+  text-align: center;
+  z-index: 2;
+  color: white;
+}
+div.temp_loading > span{
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+/* div.star_block > span.star{
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 3px;
+}
+div.star_block > span.star.-on{
+  color: yellow;
+} */
+button.btn.btn-outline-danger{
+  flex-grow: 1;
+  outline: none;
+  height: 40px;
+  font-size: 1.6rem;
+  
+  cursor: pointer;
+  border: 1px solid #eee;
+}
